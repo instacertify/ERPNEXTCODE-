@@ -182,5 +182,20 @@ frappe.pages["ic-home"].on_page_load = function (wrapper) {
 		frappe.new_doc("IC Planner Entry");
 	});
 
+	if (frappe.user.has_role("IC Admin") || frappe.user.has_role("System Manager")) {
+		$(wrapper)
+			.find(".ic-home-root")
+			.append(
+				`<div style="margin-top:12px;"><button class="btn btn-default btn-sm" id="ic-export-quotes">Admin: Download Quotes CSV</button></div>`
+			);
+		$(wrapper).on("click", "#ic-export-quotes", () => {
+			window.open(
+				"/api/method/instacertify.api.export.download_doctype_csv?doctype=" +
+					encodeURIComponent("IC Quotation"),
+				"_blank"
+			);
+		});
+	}
+
 	load();
 };

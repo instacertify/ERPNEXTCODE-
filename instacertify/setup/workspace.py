@@ -89,6 +89,36 @@ def _print_formats():
 		</div>
 		""",
 	)
+	# Joining letter QR overlay — used with HR Employee; printable stub
+	if not frappe.db.exists("Print Format", "IC Joining Letter"):
+		frappe.get_doc(
+			{
+				"doctype": "Print Format",
+				"name": "IC Joining Letter",
+				"doc_type": "Employee",
+				"module": "InstaCertify",
+				"standard": "No",
+				"custom_format": 1,
+				"print_format_type": "Jinja",
+				"html": """
+				<div style="font-family:sans-serif;padding:16mm;position:relative;min-height:240mm;">
+					<div style="border-bottom:3px solid #065175;padding-bottom:8px;">
+						<div style="font-size:22px;font-weight:700;color:#065175;">InstaCertify</div>
+						<div style="color:#ec6820;font-size:11px;letter-spacing:1px;text-transform:uppercase;">Joining Letter</div>
+					</div>
+					<p style="margin-top:24px;">Dear <strong>{{ doc.employee_name }}</strong>,</p>
+					<p>We are pleased to welcome you to InstaCertify. Your employee ID is <strong>{{ doc.name }}</strong>
+					and your date of joining is <strong>{{ doc.date_of_joining }}</strong>.</p>
+					<p>Designation: {{ doc.designation or '' }} · Department: {{ doc.department or '' }}</p>
+					<p>Please keep this letter for your records. You can download salary slips and view the holiday calendar from your ERP profile.</p>
+					<div style="position:absolute;right:16mm;bottom:16mm;text-align:center;font-size:9px;color:#5b6b78;">
+						<img src="{{ qr_data_uri(doc.name) }}" style="width:28mm;height:28mm;">
+						<div>Scan to verify joining record</div>
+					</div>
+				</div>
+				""",
+			}
+		).insert(ignore_permissions=True)
 
 
 def _upsert_print(name, dt, html, default=0):
