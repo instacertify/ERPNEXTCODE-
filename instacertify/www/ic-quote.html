@@ -1,0 +1,124 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<link rel="stylesheet" href="/assets/instacertify/css/portal.css">
+<body class="ic-portal"></body>
+<div class="ic-portal-wrap">
+	{% if error %}
+		<div class="ic-portal-card"><h2>{{ error }}</h2></div>
+	{% else %}
+	<div class="ic-portal-card" id="quote-card">
+		<div class="ic-portal-header">
+			<div>
+				<div style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#ec6820;font-weight:700;">InstaCertify Quotation</div>
+				<h1>{{ quote.subject }}</h1>
+				<div style="font-size:13px;color:#5b6b78;">
+					{{ quote.name }} · {{ quote.customer_name }} · {{ quote.currency }} · {{ quote.quote_type }}
+				</div>
+			</div>
+			<div style="text-align:right;font-size:13px;">
+				<div><strong>Status:</strong> {{ quote.status }}</div>
+				<div><strong>Barcode:</strong> {{ quote.unique_barcode }}</div>
+				{% if quote.certification_timeline %}
+				<div><strong>Timeline:</strong> {{ quote.certification_timeline }}</div>
+				{% endif %}
+			</div>
+		</div>
+
+		<table class="ic-lines">
+			<thead>
+				<tr>
+					<th>Type</th>
+					<th>Description</th>
+					<th>Samples / Standard</th>
+					<th>Consulting</th>
+					<th>Testing</th>
+					<th>Govt</th>
+					<th>Total</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for i in quote.items %}
+				<tr>
+					<td>{{ i.item_type }}</td>
+					<td>
+						{{ i.description or i.service }}
+						{% if i.lab_scope %}<div style="color:#5b6b78;font-size:12px;">{{ i.lab_scope }}</div>{% endif %}
+						{% if i.accreditation %}<div style="color:#5b6b78;font-size:12px;">{{ i.accreditation }}</div>{% endif %}
+					</td>
+					<td>
+						{% if i.no_of_samples %}Samples: {{ i.no_of_samples }}<br>{% endif %}
+						{{ i.applicable_standard or '' }}
+						{% if i.testing_timeline %}<div>{{ i.testing_timeline }}</div>{% endif %}
+					</td>
+					<td>{{ quote.currency }} {{ "{:,.2f}".format(i.consulting_amount or 0) }}</td>
+					<td>{{ quote.currency }} {{ "{:,.2f}".format(i.testing_charges or 0) }}</td>
+					<td>
+						{{ quote.currency }} {{ "{:,.2f}".format(i.government_fees or 0) }}
+						{% if i.govt_paid_to %}<div style="font-size:11px;">via {{ i.govt_paid_to }}</div>{% endif %}
+					</td>
+					<td><strong>{{ quote.currency }} {{ "{:,.2f}".format(i.line_total or 0) }}</strong></td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<div style="margin-top:16px;display:flex;justify-content:flex-end;gap:24px;font-size:14px;">
+			<div>Consulting + Lab revenue: <strong>{{ quote.currency }} {{ "{:,.2f}".format(quote.our_revenue_total or 0) }}</strong></div>
+			<div>Grand Total: <strong style="color:#065175;font-size:18px;">{{ quote.currency }} {{ "{:,.2f}".format(quote.grand_total or 0) }}</strong></div>
+		</div>
+
+		{% if quote.terms_and_conditions %}
+		<div style="margin-top:24px;">
+			<h3 style="color:#065175;">Terms &amp; Conditions</h3>
+			{{ quote.terms_and_conditions | safe }}
+		</div>
+		{% endif %}
+		{% if quote.force_majeure %}
+		<div style="margin-top:16px;">
+			<h3 style="color:#065175;">Force Majeure</h3>
+			{{ quote.force_majeure | safe }}
+		</div>
+		{% endif %}
+
+		{% if quote.status in ['Shared', 'Changes Requested', 'Draft'] %}
+		<div class="ic-portal-actions">
+			<button class="ic-btn-accept" onclick="respond('accept')">Accept Quote</button>
+			<button class="ic-btn-changes" onclick="askChanges()">Request Changes</button>
+			<button onclick="window.print()" style="background:#e8eef2;color:#065175;">Print A4</button>
+		</div>
+		{% else %}
+		<p style="margin-top:20px;"><strong>This quotation is marked: {{ quote.status }}</strong></p>
+		<button onclick="window.print()" style="background:#e8eef2;color:#065175;border:0;border-radius:999px;padding:10px 18px;">Print A4</button>
+		{% endif %}
+
+		<div class="ic-qr-corner">
+			{% if quote.qr %}<img src="{{ quote.qr }}" alt="QR">{% endif %}
+			<div>Scan UniQuote</div>
+		</div>
+	</div>
+	{% endif %}
+</div>
+
+<script>
+async function respond(action, remarks='') {
+	const token = {{ token|tojson }};
+	const res = await fetch('/api/method/instacertify.instacertify.doctype.ic_quotation.ic_quotation.customer_respond', {
+		method: 'POST',
+		headers: {'Content-Type': 'application/json', 'X-Frappe-CSRF-Token': '{{ frappe.session.csrf_token }}'},
+		body: JSON.stringify({token, action, remarks})
+	});
+	const data = await res.json();
+	if (data.message) {
+		alert('Thank you. Status: ' + data.message.status);
+		location.reload();
+	} else {
+		alert((data._server_messages && JSON.parse(data._server_messages)[0]) || 'Unable to update');
+	}
+}
+function askChanges() {
+	const remarks = prompt('Please describe the changes required:');
+	if (remarks !== null) respond('changes', remarks);
+}
+</script>
+{% endblock %}

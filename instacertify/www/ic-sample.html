@@ -1,0 +1,33 @@
+{% extends "templates/web.html" %}
+{% block page_content %}
+<link rel="stylesheet" href="/assets/instacertify/css/portal.css">
+<div class="ic-portal-wrap">
+{% if error %}
+<div class="ic-portal-card"><h2>{{ error }}</h2></div>
+{% else %}
+<div class="ic-portal-card">
+	<div class="ic-portal-header">
+		<div>
+			<div style="color:#ec6820;font-weight:700;text-transform:uppercase;font-size:12px;">Sample Tracking</div>
+			<h1>{{ doc.title }}</h1>
+			<div>{{ doc.name }} · {{ customer_name }}</div>
+		</div>
+		<div>{{ doc.sample_status }}</div>
+	</div>
+	<p><strong>Lab:</strong> {{ doc.lab or '—' }} · <strong>Samples:</strong> {{ doc.no_of_samples }} · <strong>Standard:</strong> {{ doc.applicable_standard or '—' }}</p>
+	<p><strong>QR Payload:</strong> {{ doc.sample_qr_code }}</p>
+	{% if doc.status_history %}
+	<table class="ic-lines">
+		<thead><tr><th>Status</th><th>When</th><th>Remark</th></tr></thead>
+		<tbody>
+		{% for s in doc.status_history %}
+			<tr><td>{{ s.status }}</td><td>{{ s.at }}</td><td>{{ s.remark or '' }}</td></tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	{% endif %}
+	<div class="ic-qr-corner">{% if qr %}<img src="{{ qr }}" alt="QR">{% endif %}<div>Scan with sample</div></div>
+</div>
+{% endif %}
+</div>
+{% endblock %}

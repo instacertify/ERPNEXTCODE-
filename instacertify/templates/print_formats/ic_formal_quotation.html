@@ -1,0 +1,94 @@
+<!-- Formal A4 Quotation — QR bottom-right -->
+<div class="ic-quote-sheet" style="font-family: 'Segoe UI', Helvetica, Arial, sans-serif; color:#1c2b36; position:relative; min-height:250mm; padding:12mm 14mm 28mm;">
+	<div style="display:flex; justify-content:space-between; align-items:flex-start; border-bottom:3px solid #065175; padding-bottom:10px;">
+		<div>
+			<img src="/assets/instacertify/images/instacertify-mark.svg" style="height:42px;" onerror="this.style.display='none'">
+			<div style="font-size:22px; font-weight:700; color:#065175; margin-top:4px;">InstaCertify</div>
+			<div style="font-size:10px; letter-spacing:1px; color:#ec6820; text-transform:uppercase;">Certification &amp; Testing Solutions</div>
+		</div>
+		<div style="text-align:right; font-size:12px;">
+			<div style="font-size:16px; font-weight:700; color:#065175;">QUOTATION</div>
+			<div><strong>{{ doc.name }}</strong></div>
+			<div>Date: {{ frappe.utils.formatdate(doc.modified) }}</div>
+			<div>Currency: {{ doc.currency }}</div>
+			<div>Barcode: {{ doc.unique_barcode }}</div>
+		</div>
+	</div>
+
+	<div style="margin-top:14px; display:flex; gap:24px; font-size:12px;">
+		<div style="flex:1;">
+			<div style="color:#065175; font-weight:700; margin-bottom:4px;">Bill To</div>
+			<div><strong>{{ frappe.db.get_value("IC Customer Profile", doc.customer, "company_name") }}</strong></div>
+			<div>{{ frappe.db.get_value("IC Customer Profile", doc.customer, "billing_address") or "" }}</div>
+			<div>{{ frappe.db.get_value("IC Customer Profile", doc.customer, "gstin") or "" }}</div>
+		</div>
+		<div style="flex:1;">
+			<div style="color:#065175; font-weight:700; margin-bottom:4px;">Quote Details</div>
+			<div>Type: {{ doc.quote_type }}</div>
+			<div>Subject: {{ doc.subject }}</div>
+			<div>Timeline: {{ doc.certification_timeline or "—" }}</div>
+			<div>Sales: {{ doc.sales_person or doc.owner }}</div>
+		</div>
+	</div>
+
+	<table style="width:100%; border-collapse:collapse; margin-top:16px; font-size:11px;">
+		<thead>
+			<tr style="background:#065175; color:#fff;">
+				<th style="padding:8px; text-align:left;">#</th>
+				<th style="padding:8px; text-align:left;">Type</th>
+				<th style="padding:8px; text-align:left;">Description / Standards</th>
+				<th style="padding:8px; text-align:right;">Consulting</th>
+				<th style="padding:8px; text-align:right;">Testing</th>
+				<th style="padding:8px; text-align:right;">Govt / Other</th>
+				<th style="padding:8px; text-align:right;">Line Total</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for i in doc.items %}
+			<tr style="border-bottom:1px solid #d7e3ea;">
+				<td style="padding:7px;">{{ loop.index }}</td>
+				<td style="padding:7px;">{{ i.item_type }}</td>
+				<td style="padding:7px;">
+					<strong>{{ i.description or i.service }}</strong>
+					{% if i.lab_scope %}<div>{{ i.lab_scope }}</div>{% endif %}
+					{% if i.applicable_standard %}<div>Std: {{ i.applicable_standard }}</div>{% endif %}
+					{% if i.accreditation %}<div>Accred: {{ i.accreditation }}</div>{% endif %}
+					{% if i.no_of_samples %}<div>Samples: {{ i.no_of_samples }} · {{ i.testing_timeline or '' }}</div>{% endif %}
+					{% if i.govt_paid_to %}<div>Fees via: {{ i.govt_paid_to }}</div>{% endif %}
+				</td>
+				<td style="padding:7px; text-align:right;">{{ frappe.utils.fmt_money(i.consulting_amount or 0, currency=doc.currency) }}</td>
+				<td style="padding:7px; text-align:right;">{{ frappe.utils.fmt_money(i.testing_charges or 0, currency=doc.currency) }}</td>
+				<td style="padding:7px; text-align:right;">{{ frappe.utils.fmt_money((i.government_fees or 0) + (i.other_charges or 0), currency=doc.currency) }}</td>
+				<td style="padding:7px; text-align:right;"><strong>{{ frappe.utils.fmt_money(i.line_total or 0, currency=doc.currency) }}</strong></td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+
+	<div style="margin-top:14px; width:280px; margin-left:auto; font-size:12px;">
+		<div style="display:flex; justify-content:space-between;"><span>Consulting</span><span>{{ frappe.utils.fmt_money(doc.consulting_total or 0, currency=doc.currency) }}</span></div>
+		<div style="display:flex; justify-content:space-between;"><span>Lab / Testing (revenue)</span><span>{{ frappe.utils.fmt_money(doc.testing_lab_total or 0, currency=doc.currency) }}</span></div>
+		<div style="display:flex; justify-content:space-between;"><span>Government Fees</span><span>{{ frappe.utils.fmt_money(doc.government_fees_total or 0, currency=doc.currency) }}</span></div>
+		<div style="display:flex; justify-content:space-between; border-top:2px solid #065175; margin-top:6px; padding-top:6px; font-weight:700; color:#065175;">
+			<span>Grand Total</span><span>{{ frappe.utils.fmt_money(doc.grand_total or 0, currency=doc.currency) }}</span>
+		</div>
+	</div>
+
+	{% if doc.terms_and_conditions %}
+	<div style="margin-top:18px; font-size:11px;">
+		<div style="color:#065175; font-weight:700;">Terms &amp; Conditions</div>
+		{{ doc.terms_and_conditions }}
+	</div>
+	{% endif %}
+	{% if doc.force_majeure %}
+	<div style="margin-top:10px; font-size:11px;">
+		<div style="color:#065175; font-weight:700;">Force Majeure</div>
+		{{ doc.force_majeure }}
+	</div>
+	{% endif %}
+
+	<div style="position:absolute; right:14mm; bottom:12mm; width:28mm; text-align:center; font-size:8px; color:#5b6b78;">
+		<img src="{{ qr_data_uri(doc.unique_barcode) }}" style="width:24mm; height:24mm;" alt="QR">
+		<div>UniQuote · scan to verify</div>
+	</div>
+</div>

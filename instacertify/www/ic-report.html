@@ -1,0 +1,22 @@
+{% extends "templates/web.html" %}
+{% block page_content %}
+<link rel="stylesheet" href="/assets/instacertify/css/portal.css">
+<div class="ic-portal-wrap">
+{% if error %}
+<div class="ic-portal-card"><h2>{{ error }}</h2></div>
+{% else %}
+<div class="ic-portal-card">
+	<div class="ic-portal-header">
+		<div>
+			<div style="color:#ec6820;font-weight:700;text-transform:uppercase;font-size:12px;">Test Report</div>
+			<h1>{{ doc.title }}</h1>
+		</div>
+	</div>
+	<p>Status: {{ doc.sample_status }}</p>
+	{% if file_url %}
+	<p><a class="ic-btn-accept" style="display:inline-block;text-decoration:none;padding:10px 18px;border-radius:999px;" href="{{ file_url }}" target="_blank">Download Report</a></p>
+	{% endif %}
+</div>
+{% endif %}
+</div>
+{% endblock %}

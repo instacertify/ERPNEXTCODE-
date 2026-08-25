@@ -1,0 +1,20 @@
+[project]
+name = "instacertify"
+authors = [
+    { name = "InstaCertify", email = "nikhil@instacertify.com"}
+]
+description = "InstaCertify Consulting ERP on ERPNext 16.32.3"
+requires-python = ">=3.14"
+readme = "README.md"
+version = "1.0.0"
+dependencies = [
+    "PyQRCode~=1.2.1",
+    "pypng~=0.20220715.0",
+]
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.module]
+name = "instacertify"

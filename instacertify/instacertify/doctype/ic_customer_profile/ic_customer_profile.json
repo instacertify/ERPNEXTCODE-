@@ -1,0 +1,253 @@
+{
+ "doctype": "DocType",
+ "name": "IC Customer Profile",
+ "module": "InstaCertify",
+ "engine": "InnoDB",
+ "is_tree": 0,
+ "issingle": 0,
+ "is_submittable": 0,
+ "istable": 0,
+ "editable_grid": 1,
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1,
+ "custom": 0,
+ "naming_rule": "Expression",
+ "autoname": "format:CUST-{YYYY}-{#####}",
+ "title_field": "company_name",
+ "search_fields": "gstin,primary_email,country",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "permissions": [
+  {
+   "role": "IC Admin",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "import": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "IC Ops Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "import": 0,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "IC Operations Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "import": 0,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "IC Sales Person",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "import": 0,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "import": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  }
+ ],
+ "fields": [
+  {
+   "fieldname": "company_section",
+   "fieldtype": "Section Break",
+   "label": "Company"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Logo"
+  },
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "label": "Company / Firm Name",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "company_size",
+   "fieldtype": "Select",
+   "label": "Company Size",
+   "options": "\nMicro\nSmall\nMedium\nLarge"
+  },
+  {
+   "fieldname": "gstin",
+   "fieldtype": "Data",
+   "label": "GST Number"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Select",
+   "label": "Country",
+   "options": "India\nUnited States\nUnited Kingdom\nUAE\nSingapore\nGermany\nOther",
+   "default": "India"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Select",
+   "label": "State",
+   "options": "Andhra Pradesh\nArunachal Pradesh\nAssam\nBihar\nChhattisgarh\nGoa\nGujarat\nHaryana\nHimachal Pradesh\nJharkhand\nKarnataka\nKerala\nMadhya Pradesh\nMaharashtra\nManipur\nMeghalaya\nMizoram\nNagaland\nOdisha\nPunjab\nRajasthan\nSikkim\nTamil Nadu\nTelangana\nTripura\nUttar Pradesh\nUttarakhand\nWest Bengal\nAndaman and Nicobar Islands\nChandigarh\nDadra and Nagar Haveli and Daman and Diu\nDelhi\nJammu and Kashmir\nLadakh\nLakshadweep\nPuducherry"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break",
+   "label": "Column Break 3"
+  },
+  {
+   "fieldname": "billing_address",
+   "fieldtype": "Small Text",
+   "label": "Registered / Billing Address"
+  },
+  {
+   "fieldname": "factory_address",
+   "fieldtype": "Small Text",
+   "label": "Factory Address"
+  },
+  {
+   "fieldname": "onboarded_on",
+   "fieldtype": "Date",
+   "label": "Date Onboarded",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "assigned_sales",
+   "fieldtype": "Link",
+   "label": "Assigned Sales Person",
+   "options": "User",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "default_currency",
+   "fieldtype": "Link",
+   "label": "Default Currency",
+   "options": "Currency",
+   "default": "INR"
+  },
+  {
+   "fieldname": "erpnext_customer",
+   "fieldtype": "Link",
+   "label": "ERPNext Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "points_of_contact_section",
+   "fieldtype": "Section Break",
+   "label": "Points of Contact"
+  },
+  {
+   "fieldname": "contacts",
+   "fieldtype": "Table",
+   "label": "Contacts",
+   "options": "IC Customer Contact"
+  },
+  {
+   "fieldname": "commercial_section",
+   "fieldtype": "Section Break",
+   "label": "Commercial"
+  },
+  {
+   "fieldname": "past_quotes_html",
+   "fieldtype": "HTML",
+   "label": "Past Quotes"
+  },
+  {
+   "fieldname": "invoices_html",
+   "fieldtype": "HTML",
+   "label": "Invoices"
+  },
+  {
+   "fieldname": "secure_notes_section",
+   "fieldtype": "Section Break",
+   "label": "Secure Notes"
+  },
+  {
+   "fieldname": "login_credentials",
+   "fieldtype": "Password",
+   "label": "Login Credentials / Portal Access"
+  },
+  {
+   "fieldname": "commitments",
+   "fieldtype": "Text Editor",
+   "label": "Commitments"
+  },
+  {
+   "fieldname": "incidents",
+   "fieldtype": "Text Editor",
+   "label": "Incidents"
+  },
+  {
+   "fieldname": "deliverables_&_files_section",
+   "fieldtype": "Section Break",
+   "label": "Deliverables & Files"
+  },
+  {
+   "fieldname": "documents",
+   "fieldtype": "Table",
+   "label": "Project Documents",
+   "options": "IC Customer Document"
+  }
+ ],
+ "links": [],
+ "actions": [],
+ "allow_rename": 1,
+ "has_web_view": 0,
+ "index_web_pages_for_search": 0,
+ "show_name_in_global_search": 1,
+ "image_field": "image",
+ "quick_entry": 0,
+ "beta": 0
+}
