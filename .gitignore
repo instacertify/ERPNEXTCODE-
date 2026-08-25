@@ -12,3 +12,6 @@ deploy/compose.generated.yaml
 *.log
 .vscode/
 .idea/
+
+frappe_docker/
+deploy/compose.try.yaml
