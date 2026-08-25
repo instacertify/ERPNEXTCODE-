@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://github.com/frappe/erpnext.git",
+    "branch": "v16.32.3"
+  },
+  {
+    "url": "https://github.com/frappe/hrms.git",
+    "branch": "version-16"
+  },
+  {
+    "url": "https://github.com/instacertify/ERPNEXTCODE-.git",
+    "branch": "cursor/instacertify-erpnext-7b69"
+  }
+]

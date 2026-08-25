@@ -1,0 +1,167 @@
+{
+ "doctype": "DocType",
+ "name": "IC Lab",
+ "module": "InstaCertify",
+ "engine": "InnoDB",
+ "is_tree": 0,
+ "issingle": 0,
+ "is_submittable": 0,
+ "istable": 0,
+ "editable_grid": 1,
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1,
+ "custom": 0,
+ "naming_rule": "Expression",
+ "autoname": "format:LAB-.####",
+ "title_field": "lab_name",
+ "search_fields": "location,accreditation",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "permissions": [
+  {
+   "role": "IC Admin",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "import": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "IC Ops Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "IC Operations Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "report": 1,
+   "export": 0,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "IC Sales Person",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "report": 1,
+   "export": 0,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "import": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  }
+ ],
+ "fields": [
+  {
+   "fieldname": "lab_identity_section",
+   "fieldtype": "Section Break",
+   "label": "Lab Identity"
+  },
+  {
+   "fieldname": "lab_name",
+   "fieldtype": "Data",
+   "label": "Lab Name",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "accreditation",
+   "fieldtype": "Data",
+   "label": "Accreditation",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "contact_email",
+   "fieldtype": "Data",
+   "label": "Contact Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "contact_phone",
+   "fieldtype": "Data",
+   "label": "Contact Phone"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break",
+   "label": "Column Break 4"
+  },
+  {
+   "fieldname": "lab_scope_pdf",
+   "fieldtype": "Attach",
+   "label": "Lab Scope Sheet (PDF)"
+  },
+  {
+   "fieldname": "accreditation_certificate",
+   "fieldtype": "Attach",
+   "label": "Accreditation Certificate"
+  },
+  {
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active",
+   "default": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "testing_scope_&_pricing_section",
+   "fieldtype": "Section Break",
+   "label": "Testing Scope & Pricing"
+  },
+  {
+   "fieldname": "scopes",
+   "fieldtype": "Table",
+   "label": "Testing Scopes",
+   "options": "IC Lab Scope"
+  }
+ ],
+ "links": [],
+ "actions": [],
+ "allow_rename": 1,
+ "has_web_view": 0,
+ "index_web_pages_for_search": 0,
+ "show_name_in_global_search": 1,
+ "quick_entry": 0,
+ "beta": 0
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>InstaCertify ERP — Dashboard Preview</title>
+<link rel="stylesheet" href="../instacertify/public/css/instacertify_theme.css" />
+<style>
+  body { margin:0; font-family:"Segoe UI", system-ui, sans-serif; }
+  .shell { max-width:1100px; margin:0 auto; padding:24px; }
+  .tabs { display:flex; gap:8px; margin:18px 0; flex-wrap:wrap; }
+  .tabs a { padding:8px 14px; border-radius:999px; background:#fff; color:#065175; text-decoration:none; border:1px solid rgba(6,81,117,.15); font-weight:600; font-size:13px; }
+  .tabs a.active { background:#065175; color:#fff; }
+</style>
+</head>
+<body class="frappe-desk">
+  <div class="shell">
+    <div class="ic-greeting">
+      <h2>Good morning, Nikhil</h2>
+      <div class="sub">Tuesday, 25 August 2026 · 09:45 AM</div>
+      <div class="ic-stats">
+        <div class="ic-stat"><div class="n">5</div><div class="l">Leads</div></div>
+        <div class="ic-stat"><div class="n">6</div><div class="l">Quotes</div></div>
+        <div class="ic-stat"><div class="n">6</div><div class="l">Open Projects</div></div>
+        <div class="ic-stat"><div class="n">1</div><div class="l">Test Requests</div></div>
+        <div class="ic-stat"><div class="n">3</div><div class="l">Labs</div></div>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <a class="active" href="#">Home</a>
+      <a href="#">CRM</a>
+      <a href="#">Customers</a>
+      <a href="#">Projects</a>
+      <a href="#">Labs</a>
+      <a href="#">Calendar</a>
+      <a href="#">HR</a>
+    </div>
+
+    <h3 style="color:#065175;">Ongoing Projects</h3>
+    <div class="ic-project-rail">
+      <div class="ic-project-card color-Blue"><h4>Nova — BIS CRS Smart Plug</h4><div class="meta"><span>Nova Electronics</span><span class="ic-pill priority-High">High</span></div><div class="meta" style="margin-top:8px;"><span>In Progress</span><span>45%</span></div></div>
+      <div class="ic-project-card color-Orange"><h4>GreenGrid — EMC Charger</h4><div class="meta"><span>GreenGrid Energy</span><span class="ic-pill priority-Critical">Critical</span></div><div class="meta" style="margin-top:8px;"><span>Waiting on Lab</span><span>60%</span></div></div>
+      <div class="ic-project-card color-Teal"><h4>Helios — ISO 9001</h4><div class="meta"><span>Helios Appliance</span><span class="ic-pill">Medium</span></div><div class="meta" style="margin-top:8px;"><span>Pending</span><span>10%</span></div></div>
+      <div class="ic-project-card color-Orange"><h4>BrightWave — FCC Module</h4><div class="meta"><span>BrightWave Devices</span><span class="ic-pill priority-High">High</span></div><div class="meta" style="margin-top:8px;"><span>In Progress</span><span>55%</span></div></div>
+      <div class="ic-project-card color-Blue"><h4>Helios — BIS Renewal</h4><div class="meta"><span>Helios Appliance</span><span class="ic-pill priority-High">High</span></div><div class="meta" style="margin-top:8px;"><span>In Progress</span><span>30%</span></div></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:16px;margin-top:8px;">
+      <div class="frappe-card" style="padding:16px;">
+        <h3 style="margin-top:0;color:#065175;">Pending Quotes</h3>
+        <div style="padding:10px 0;border-bottom:1px solid #e6eef3;"><strong style="color:#065175;">BIS CRS — Smart Plug Series A</strong><div style="font-size:12px;color:#5b6b78;">Shared · INR 1,27,000</div></div>
+        <div style="padding:10px 0;border-bottom:1px solid #e6eef3;"><strong style="color:#065175;">FCC ID — Wi-Fi Module X200</strong><div style="font-size:12px;color:#5b6b78;">Draft · USD 2,480</div></div>
+        <div style="padding:10px 0;"><strong style="color:#065175;">CE + RoHS Multi-SKU Bundle</strong><div style="font-size:12px;color:#5b6b78;">Changes Requested · USD 3,210</div></div>
+      </div>
+      <div class="frappe-card" style="padding:16px;">
+        <h3 style="margin-top:0;color:#065175;">Today's Planner (30-min)</h3>
+        <div class="ic-planner-slot busy">10:00–10:30 · Client call — Nova BIS</div>
+        <div class="ic-planner-slot">10:30–11:00</div>
+        <div class="ic-planner-slot">11:00–11:30</div>
+        <div class="ic-planner-slot busy">15:00–16:00 · Lab follow-up — Apex</div>
+      </div>
+    </div>
+
+    <div class="frappe-card" style="padding:16px;margin-top:16px;">
+      <h3 style="margin:0 0 12px;color:#065175;">Lab Library</h3>
+      <div class="ic-lab-stack">
+        <div class="ic-lab-chip"><strong>NABL Apex Test House — Pune</strong><span style="font-size:12px;color:#5b6b78;">Pune, India</span><span style="font-size:11px;color:#ec6820;">NABL ISO/IEC 17025</span></div>
+        <div class="ic-lab-chip"><strong>GlobalCert Labs — Dubai</strong><span style="font-size:12px;color:#5b6b78;">Dubai, UAE</span><span style="font-size:11px;color:#ec6820;">ILAC MRA</span></div>
+        <div class="ic-lab-chip"><strong>Pacific Safety Lab — Singapore</strong><span style="font-size:12px;color:#5b6b78;">Singapore</span><span style="font-size:11px;color:#ec6820;">SAC-SINGLAS</span></div>
+      </div>
+      <div class="ic-pagination"><button>First</button><button class="active">1</button><button>Last</button></div>
+    </div>
+  </div>
+</body>
+</html>

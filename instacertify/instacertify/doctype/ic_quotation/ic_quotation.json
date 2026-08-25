@@ -1,0 +1,331 @@
+{
+ "doctype": "DocType",
+ "name": "IC Quotation",
+ "module": "InstaCertify",
+ "engine": "InnoDB",
+ "is_tree": 0,
+ "issingle": 0,
+ "is_submittable": 1,
+ "istable": 0,
+ "editable_grid": 1,
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1,
+ "custom": 0,
+ "naming_rule": "Expression",
+ "autoname": "format:QT-.YYYY.-.#####",
+ "title_field": "subject",
+ "search_fields": "customer,quote_type,status,currency",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "permissions": [
+  {
+   "role": "IC Admin",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "import": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "IC Ops Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "import": 0,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "IC Operations Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "import": 0,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "IC Sales Person",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "import": 0,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "import": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  }
+ ],
+ "fields": [
+  {
+   "fieldname": "create_quote_for_section",
+   "fieldtype": "Section Break",
+   "label": "Create Quote For"
+  },
+  {
+   "fieldname": "quote_type",
+   "fieldtype": "Select",
+   "label": "Quote For",
+   "options": "Service\\nTesting\\nCertificate\\nRenewal\\nMultiple Product\\nOther",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "template",
+   "fieldtype": "Link",
+   "label": "Load From Template",
+   "options": "IC Quotation Template"
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "label": "Subject",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "unique_barcode",
+   "fieldtype": "Data",
+   "label": "UniQuote Barcode",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break",
+   "label": "Column Break 5"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "IC Customer Profile",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "lead",
+   "fieldtype": "Link",
+   "label": "Source Lead",
+   "options": "IC Lead"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "default": "INR",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\\nShared\\nAccepted\\nChanges Requested\\nRejected\\nConverted to Project",
+   "default": "Draft",
+   "in_list_view": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "ownership_section",
+   "fieldtype": "Section Break",
+   "label": "Ownership"
+  },
+  {
+   "fieldname": "sales_person",
+   "fieldtype": "Link",
+   "label": "Sales Person",
+   "options": "User",
+   "default": "__user"
+  },
+  {
+   "fieldname": "shared_by",
+   "fieldtype": "Link",
+   "label": "Shared By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "share_token",
+   "fieldtype": "Data",
+   "label": "Share Token",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "share_link",
+   "fieldtype": "Data",
+   "label": "Customer Share Link",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_remarks",
+   "fieldtype": "Text Editor",
+   "label": "Customer Change Remarks",
+   "read_only": 1
+  },
+  {
+   "fieldname": "accepted_on",
+   "fieldtype": "Datetime",
+   "label": "Accepted On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "line_items_section",
+   "fieldtype": "Section Break",
+   "label": "Line Items"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "IC Quotation Item"
+  },
+  {
+   "fieldname": "cost_summary_section",
+   "fieldtype": "Section Break",
+   "label": "Cost Summary"
+  },
+  {
+   "fieldname": "consulting_total",
+   "fieldtype": "Currency",
+   "label": "Consulting (Revenue)",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "testing_lab_total",
+   "fieldtype": "Currency",
+   "label": "Lab / Testing (Revenue)",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "government_fees_total",
+   "fieldtype": "Currency",
+   "label": "Government Fees",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "other_charges_total",
+   "fieldtype": "Currency",
+   "label": "Other Charges",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break",
+   "label": "Column Break 6"
+  },
+  {
+   "fieldname": "our_revenue_total",
+   "fieldtype": "Currency",
+   "label": "Our Revenue (Consulting + Lab)",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "grand_total",
+   "fieldtype": "Currency",
+   "label": "Grand Total",
+   "options": "currency",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "payment_notes",
+   "fieldtype": "Small Text",
+   "label": "Payment Notes (portal / lab / us)"
+  },
+  {
+   "fieldname": "certification_&_testing_context_section",
+   "fieldtype": "Section Break",
+   "label": "Certification & Testing Context"
+  },
+  {
+   "fieldname": "certification_timeline",
+   "fieldtype": "Data",
+   "label": "Certification Timeline"
+  },
+  {
+   "fieldname": "force_majeure",
+   "fieldtype": "Text Editor",
+   "label": "Force Majeure"
+  },
+  {
+   "fieldname": "terms_and_conditions",
+   "fieldtype": "Text Editor",
+   "label": "Terms and Conditions"
+  },
+  {
+   "fieldname": "internal_notes",
+   "fieldtype": "Small Text",
+   "label": "Internal Notes"
+  },
+  {
+   "fieldname": "linked_project_section",
+   "fieldtype": "Section Break",
+   "label": "Linked Project"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "IC Project",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "actions": [],
+ "allow_rename": 1,
+ "has_web_view": 0,
+ "index_web_pages_for_search": 0,
+ "show_name_in_global_search": 1,
+ "quick_entry": 0,
+ "beta": 0
+}

@@ -1,0 +1,14 @@
+.DS_Store
+*.pyc
+__pycache__/
+*.egg-info/
+.eggs/
+dist/
+build/
+node_modules/
+.env
+deploy/.env
+deploy/compose.generated.yaml
+*.log
+.vscode/
+.idea/

@@ -1,0 +1,58 @@
+{
+ "doctype": "DocType",
+ "name": "IC Project Hours",
+ "module": "InstaCertify",
+ "engine": "InnoDB",
+ "is_tree": 0,
+ "issingle": 0,
+ "is_submittable": 0,
+ "istable": 1,
+ "editable_grid": 1,
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1,
+ "custom": 0,
+ "naming_rule": "Random",
+ "autoname": "hash",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "permissions": [],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "User",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "hours",
+   "fieldtype": "Float",
+   "label": "Hours",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "activity",
+   "fieldtype": "Data",
+   "label": "Activity",
+   "in_list_view": 1
+  }
+ ],
+ "links": [],
+ "actions": [],
+ "allow_rename": 1,
+ "has_web_view": 0,
+ "index_web_pages_for_search": 0,
+ "show_name_in_global_search": 1,
+ "quick_entry": 0,
+ "beta": 0
+}

@@ -1,0 +1,176 @@
+{
+ "doctype": "DocType",
+ "name": "IC Asset Register",
+ "module": "InstaCertify",
+ "engine": "InnoDB",
+ "is_tree": 0,
+ "issingle": 0,
+ "is_submittable": 0,
+ "istable": 0,
+ "editable_grid": 1,
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1,
+ "custom": 0,
+ "naming_rule": "Expression",
+ "autoname": "format:AST-.YYYY.-.#####",
+ "title_field": "asset_name",
+ "search_fields": "asset_code,custodian",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "permissions": [
+  {
+   "role": "IC Admin",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "import": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "IC Ops Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "import": 0,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "IC Operations Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "import": 0,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "IC Sales Person",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "import": 0,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "import": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  }
+ ],
+ "fields": [
+  {
+   "fieldname": "asset_name",
+   "fieldtype": "Data",
+   "label": "Asset Name",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "asset_code",
+   "fieldtype": "Data",
+   "label": "Asset Code",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "acquired_on",
+   "fieldtype": "Date",
+   "label": "Acquired On",
+   "reqd": 1
+  },
+  {
+   "fieldname": "asset_value",
+   "fieldtype": "Currency",
+   "label": "Value",
+   "options": "INR",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "custodian",
+   "fieldtype": "Link",
+   "label": "Who Has the Asset",
+   "options": "User",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "In Use\\nIn Store\\nUnder Repair\\nDisposed",
+   "default": "In Use"
+  },
+  {
+   "fieldname": "photo",
+   "fieldtype": "Attach Image",
+   "label": "Photo"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "registered_by",
+   "fieldtype": "Link",
+   "label": "Registered By",
+   "options": "User",
+   "default": "__user"
+  }
+ ],
+ "links": [],
+ "actions": [],
+ "allow_rename": 1,
+ "has_web_view": 0,
+ "index_web_pages_for_search": 0,
+ "show_name_in_global_search": 1,
+ "quick_entry": 0,
+ "beta": 0
+}

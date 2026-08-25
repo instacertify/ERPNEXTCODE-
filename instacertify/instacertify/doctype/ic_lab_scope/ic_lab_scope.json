@@ -1,0 +1,78 @@
+{
+ "doctype": "DocType",
+ "name": "IC Lab Scope",
+ "module": "InstaCertify",
+ "engine": "InnoDB",
+ "is_tree": 0,
+ "issingle": 0,
+ "is_submittable": 0,
+ "istable": 1,
+ "editable_grid": 1,
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1,
+ "custom": 0,
+ "naming_rule": "Random",
+ "autoname": "hash",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "permissions": [],
+ "fields": [
+  {
+   "fieldname": "test_name",
+   "fieldtype": "Data",
+   "label": "Name of Test",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "applicable_standard",
+   "fieldtype": "Data",
+   "label": "Applicable Standard",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "accreditation_scope",
+   "fieldtype": "Data",
+   "label": "Accreditation Scope"
+  },
+  {
+   "fieldname": "typical_timeline_days",
+   "fieldtype": "Int",
+   "label": "Timeline (Days)",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "purchase_price",
+   "fieldtype": "Currency",
+   "label": "Purchase Price",
+   "in_list_view": 0
+  },
+  {
+   "fieldname": "selling_price",
+   "fieldtype": "Currency",
+   "label": "Selling Price",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "default": "INR"
+  },
+  {
+   "fieldname": "scope_pdf",
+   "fieldtype": "Attach",
+   "label": "Scope PDF"
+  }
+ ],
+ "links": [],
+ "actions": [],
+ "allow_rename": 1,
+ "has_web_view": 0,
+ "index_web_pages_for_search": 0,
+ "show_name_in_global_search": 1,
+ "quick_entry": 0,
+ "beta": 0
+}
