@@ -26,7 +26,7 @@ fi
 
 cd "$STACK_DIR"
 
-# apps.json — pin ERPNext 16.32.3 + HRMS + this custom app
+# apps.json — ERPNext 16.32.3 + this custom app only
 cp "$ROOT/apps.json" ./apps.json
 # rewrite branch if overridden
 python3 - <<PY
@@ -82,7 +82,6 @@ docker compose --env-file "$ENV_FILE" -f "$ROOT/compose.generated.yaml" exec -T 
     --mariadb-root-password "$(grep ^DB_PASSWORD= "$ENV_FILE" | cut -d= -f2-)" \
     --admin-password "${ADMIN_PASSWORD:-admin}" \
     --install-app erpnext \
-    --install-app hrms \
     --install-app instacertify \
     --set-default || true
 
@@ -98,5 +97,5 @@ echo ""
 echo "✅ InstaCertify ERP is up"
 echo "   Open: http://localhost:${HTTP_PUBLISH_PORT:-8080}  (map DNS ${SITE_NAME} → host)"
 echo "   Desk dashboard: /app/ic-home"
-echo "   Apps: ERPNext ${ERPNEXT_VERSION:-v16.32.3} + HRMS + instacertify"
+echo "   Stack: ERPNext ${ERPNEXT_VERSION:-v16.32.3} + instacertify (nothing else)"
 echo "   Next: point ${SITE_NAME} DNS / TLS (use compose.traefik overrides for Let's Encrypt)"

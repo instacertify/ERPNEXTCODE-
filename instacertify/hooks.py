@@ -4,13 +4,13 @@
 app_name = "instacertify"
 app_title = "InstaCertify"
 app_publisher = "InstaCertify"
-app_description = "Consulting ERP for certification and testing — CRM, quotations, labs, projects, HRMS overlays"
+app_description = "Consulting ERP for certification and testing on ERPNext 16.32.3 — CRM, quotations, labs, projects"
 app_email = "nikhil@instacertify.com"
 app_license = "MIT"
 app_version = "1.0.0"
 
 # Apps required
-required_apps = ["erpnext", "hrms"]
+required_apps = ["erpnext"]
 
 # Includes in <head>
 app_include_css = [

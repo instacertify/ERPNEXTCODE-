@@ -43,7 +43,7 @@ frappe.pages["ic-home"].on_page_load = function (wrapper) {
 				<a class="btn btn-default" href="/app/ic-customer-profile">Customers</a>
 				<a class="btn btn-default" href="/app/ic-test-request">Test Requests</a>
 				<a class="btn btn-default" href="/app/ic-asset-register">Assets</a>
-				<a class="btn btn-default" href="/app/hr">HR / Salary Slips</a>
+				<a class="btn btn-default" href="/app/ic-planner-entry">Calendar</a>
 			</div>
 		</div>
 	`);
