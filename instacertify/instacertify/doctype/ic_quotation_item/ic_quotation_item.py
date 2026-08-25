@@ -5,5 +5,5 @@ import frappe
 from frappe.model.document import Document
 
 
-class IcQuotationItem(Document):
+class ICQuotationItem(Document):
 	pass

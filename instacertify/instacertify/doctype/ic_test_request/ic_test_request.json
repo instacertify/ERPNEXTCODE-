@@ -13,7 +13,7 @@
  "track_views": 1,
  "custom": 0,
  "naming_rule": "Expression",
- "autoname": "format:TR-.YYYY.-.#####",
+ "autoname": "format:TR-{YYYY}-{#####}",
  "title_field": "title",
  "search_fields": "customer,lab,sample_status",
  "sort_field": "modified",
@@ -171,7 +171,7 @@
    "fieldname": "sample_status",
    "fieldtype": "Select",
    "label": "Sample Status",
-   "options": "Awaiting Sample\\nSample Received\\nDispatched to Lab\\nTesting in Process\\nReport Available\\nReport Uploaded\\nShared with Customer",
+   "options": "Awaiting Sample\nSample Received\nDispatched to Lab\nTesting in Process\nReport Available\nReport Uploaded\nShared with Customer",
    "default": "Awaiting Sample",
    "in_list_view": 1
   },

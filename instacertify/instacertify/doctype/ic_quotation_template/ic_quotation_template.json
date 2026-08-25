@@ -93,7 +93,7 @@
    "fieldname": "quote_type",
    "fieldtype": "Select",
    "label": "Quote Type",
-   "options": "Service\\nTesting\\nCertificate\\nRenewal\\nMultiple Product\\nOther",
+   "options": "Service\nTesting\nCertificate\nRenewal\nMultiple Product\nOther",
    "reqd": 1,
    "in_list_view": 1
   },

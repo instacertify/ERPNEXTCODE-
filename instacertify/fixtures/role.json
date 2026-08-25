@@ -1,24 +1,28 @@
 [
  {
   "doctype": "Role",
+  "name": "IC Admin",
   "role_name": "IC Admin",
   "desk_access": 1,
   "is_custom": 1
  },
  {
   "doctype": "Role",
+  "name": "IC Ops Manager",
   "role_name": "IC Ops Manager",
   "desk_access": 1,
   "is_custom": 1
  },
  {
   "doctype": "Role",
+  "name": "IC Sales Person",
   "role_name": "IC Sales Person",
   "desk_access": 1,
   "is_custom": 1
  },
  {
   "doctype": "Role",
+  "name": "IC Operations Manager",
   "role_name": "IC Operations Manager",
   "desk_access": 1,
   "is_custom": 1

@@ -5,5 +5,5 @@ import frappe
 from frappe.model.document import Document
 
 
-class IcProjectHours(Document):
+class ICProjectHours(Document):
 	pass

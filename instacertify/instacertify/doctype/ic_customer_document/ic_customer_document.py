@@ -5,5 +5,5 @@ import frappe
 from frappe.model.document import Document
 
 
-class IcCustomerDocument(Document):
+class ICCustomerDocument(Document):
 	pass

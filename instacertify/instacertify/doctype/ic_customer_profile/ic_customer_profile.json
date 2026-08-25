@@ -13,7 +13,7 @@
  "track_views": 1,
  "custom": 0,
  "naming_rule": "Expression",
- "autoname": "format:CUST-.YYYY.-.#####",
+ "autoname": "format:CUST-{YYYY}-{#####}",
  "title_field": "company_name",
  "search_fields": "gstin,primary_email,country",
  "sort_field": "modified",
@@ -122,7 +122,7 @@
    "fieldname": "company_size",
    "fieldtype": "Select",
    "label": "Company Size",
-   "options": "\\nMicro\\nSmall\\nMedium\\nLarge"
+   "options": "\nMicro\nSmall\nMedium\nLarge"
   },
   {
    "fieldname": "gstin",
@@ -133,14 +133,14 @@
    "fieldname": "country",
    "fieldtype": "Select",
    "label": "Country",
-   "options": "India\\nUnited States\\nUnited Kingdom\\nUAE\\nSingapore\\nGermany\\nOther",
+   "options": "India\nUnited States\nUnited Kingdom\nUAE\nSingapore\nGermany\nOther",
    "default": "India"
   },
   {
    "fieldname": "state",
    "fieldtype": "Select",
    "label": "State",
-   "options": "Andhra Pradesh\\nArunachal Pradesh\\nAssam\\nBihar\\nChhattisgarh\\nGoa\\nGujarat\\nHaryana\\nHimachal Pradesh\\nJharkhand\\nKarnataka\\nKerala\\nMadhya Pradesh\\nMaharashtra\\nManipur\\nMeghalaya\\nMizoram\\nNagaland\\nOdisha\\nPunjab\\nRajasthan\\nSikkim\\nTamil Nadu\\nTelangana\\nTripura\\nUttar Pradesh\\nUttarakhand\\nWest Bengal\\nAndaman and Nicobar Islands\\nChandigarh\\nDadra and Nagar Haveli and Daman and Diu\\nDelhi\\nJammu and Kashmir\\nLadakh\\nLakshadweep\\nPuducherry"
+   "options": "Andhra Pradesh\nArunachal Pradesh\nAssam\nBihar\nChhattisgarh\nGoa\nGujarat\nHaryana\nHimachal Pradesh\nJharkhand\nKarnataka\nKerala\nMadhya Pradesh\nMaharashtra\nManipur\nMeghalaya\nMizoram\nNagaland\nOdisha\nPunjab\nRajasthan\nSikkim\nTamil Nadu\nTelangana\nTripura\nUttar Pradesh\nUttarakhand\nWest Bengal\nAndaman and Nicobar Islands\nChandigarh\nDadra and Nagar Haveli and Daman and Diu\nDelhi\nJammu and Kashmir\nLadakh\nLakshadweep\nPuducherry"
   },
   {
    "fieldname": "column_break_3",

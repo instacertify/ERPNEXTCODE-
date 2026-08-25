@@ -13,7 +13,7 @@
  "track_views": 1,
  "custom": 0,
  "naming_rule": "Expression",
- "autoname": "format:AST-.YYYY.-.#####",
+ "autoname": "format:AST-{YYYY}-{#####}",
  "title_field": "asset_name",
  "search_fields": "asset_code,custodian",
  "sort_field": "modified",
@@ -144,7 +144,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "In Use\\nIn Store\\nUnder Repair\\nDisposed",
+   "options": "In Use\nIn Store\nUnder Repair\nDisposed",
    "default": "In Use"
   },
   {

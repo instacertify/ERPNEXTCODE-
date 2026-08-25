@@ -5,5 +5,5 @@ import frappe
 from frappe.model.document import Document
 
 
-class IcPlannerEntry(Document):
+class ICPlannerEntry(Document):
 	pass

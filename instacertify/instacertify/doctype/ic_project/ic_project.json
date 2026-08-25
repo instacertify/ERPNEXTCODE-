@@ -13,7 +13,7 @@
  "track_views": 1,
  "custom": 0,
  "naming_rule": "Expression",
- "autoname": "format:PRJ-.YYYY.-.#####",
+ "autoname": "format:PRJ-{YYYY}-{#####}",
  "title_field": "project_name",
  "search_fields": "customer,priority,status",
  "sort_field": "modified",
@@ -131,7 +131,7 @@
    "fieldname": "priority",
    "fieldtype": "Select",
    "label": "Priority",
-   "options": "Low\\nMedium\\nHigh\\nCritical",
+   "options": "Low\nMedium\nHigh\nCritical",
    "default": "Medium",
    "in_list_view": 1
   },
@@ -144,7 +144,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Pending\\nIn Progress\\nWaiting on Client\\nWaiting on Lab\\nCompleted\\nOn Hold",
+   "options": "Pending\nIn Progress\nWaiting on Client\nWaiting on Lab\nCompleted\nOn Hold",
    "default": "Pending",
    "in_list_view": 1
   },
@@ -204,7 +204,7 @@
    "fieldname": "card_color",
    "fieldtype": "Select",
    "label": "Card Colour",
-   "options": "Blue\\nOrange\\nTeal\\nSlate",
+   "options": "Blue\nOrange\nTeal\nSlate",
    "default": "Blue"
   }
  ],

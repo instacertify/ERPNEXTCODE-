@@ -5,5 +5,5 @@ import frappe
 from frappe.model.document import Document
 
 
-class IcLab(Document):
+class ICLab(Document):
 	pass

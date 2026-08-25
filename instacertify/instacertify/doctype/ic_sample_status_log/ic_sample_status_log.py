@@ -5,5 +5,5 @@ import frappe
 from frappe.model.document import Document
 
 
-class IcSampleStatusLog(Document):
+class ICSampleStatusLog(Document):
 	pass

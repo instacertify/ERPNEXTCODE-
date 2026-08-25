@@ -5,5 +5,5 @@ import frappe
 from frappe.model.document import Document
 
 
-class IcConsultant(Document):
+class ICConsultant(Document):
 	pass

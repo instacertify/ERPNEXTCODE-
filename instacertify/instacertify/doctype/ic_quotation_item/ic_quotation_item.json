@@ -22,7 +22,7 @@
    "fieldname": "item_type",
    "fieldtype": "Select",
    "label": "Type",
-   "options": "Service\\nTesting\\nCertificate\\nRenewal\\nOther",
+   "options": "Service\nTesting\nCertificate\nRenewal\nOther",
    "reqd": 1,
    "in_list_view": 1
   },
@@ -97,7 +97,7 @@
    "fieldname": "govt_paid_to",
    "fieldtype": "Select",
    "label": "Govt / Lab Paid To",
-   "options": "Us\\nGovernment Portal\\nLab Directly\\nSplit"
+   "options": "Us\nGovernment Portal\nLab Directly\nSplit"
   },
   {
    "fieldname": "other_charges",

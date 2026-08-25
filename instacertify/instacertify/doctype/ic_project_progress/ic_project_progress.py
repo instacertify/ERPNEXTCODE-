@@ -5,5 +5,5 @@ import frappe
 from frappe.model.document import Document
 
 
-class IcProjectProgress(Document):
+class ICProjectProgress(Document):
 	pass

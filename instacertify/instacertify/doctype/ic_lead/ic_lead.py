@@ -5,5 +5,5 @@ import frappe
 from frappe.model.document import Document
 
 
-class IcLead(Document):
+class ICLead(Document):
 	pass

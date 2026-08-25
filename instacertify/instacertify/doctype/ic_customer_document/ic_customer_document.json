@@ -29,7 +29,7 @@
    "fieldname": "document_type",
    "fieldtype": "Select",
    "label": "Type",
-   "options": "PDF\\nImage\\nOther\\nDeliverable\\nCertificate",
+   "options": "PDF\nImage\nOther\nDeliverable\nCertificate",
    "in_list_view": 1
   },
   {

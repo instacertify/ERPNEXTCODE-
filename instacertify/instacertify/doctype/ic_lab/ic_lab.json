@@ -13,7 +13,7 @@
  "track_views": 1,
  "custom": 0,
  "naming_rule": "Expression",
- "autoname": "format:LAB-.####",
+ "autoname": "format:LAB-{####}",
  "title_field": "lab_name",
  "search_fields": "location,accreditation",
  "sort_field": "modified",

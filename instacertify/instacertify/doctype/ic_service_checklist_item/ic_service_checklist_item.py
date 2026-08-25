@@ -5,5 +5,5 @@ import frappe
 from frappe.model.document import Document
 
 
-class IcServiceChecklistItem(Document):
+class ICServiceChecklistItem(Document):
 	pass
